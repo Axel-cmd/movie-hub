@@ -11,6 +11,25 @@ Pour la liste des films : https://developers.themoviedb.org
 Pour les sites de streaming : just watch
 
 
+## Avant de pouvoir lancer l'application 
+
+Il faut créer un fichier de configuration appelé config.ts situé à la racine du projet dans un dossier "config"
+
+Création du fichier :
+```
+cd ./movie-hub 
+touch config/config.ts
+```
+
+Contenu du fichier de configuration :
+```
+export default {
+    DEFAULT_MOVIE_API_URI:"api_uri",
+    MOVIE_API_KEY_V3:"api_key"
+}
+```
+
+
 ## Pour lancer l'application sur le téléphone
 
 Installation de expo-cli 
