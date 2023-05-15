@@ -9,3 +9,22 @@ De plus l'utilisateur à la possibilités de créer des listes pour ajouter ses 
 Pour la liste des films : https://developers.themoviedb.org
 
 Pour les sites de streaming : just watch
+
+
+## Pour lancer l'application sur le téléphone
+
+Installation de expo-cli 
+
+```
+npm i -g expo-cli
+```
+
+Installation des dépendances 
+```
+npm i 
+```
+
+Lancement en mode dévelopement avec l'application expo sur le téléphone 
+```
+npm run start 
+```
