@@ -9,8 +9,10 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "expo": "~48.0.15",
     "expo-status-bar": "~1.4.4",
+    "fs": "^0.0.1-security",
     "react": "18.2.0",
     "react-native": "0.71.7"
   },
