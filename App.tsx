@@ -12,6 +12,7 @@ export default function App() {
   return (
     <View style={appStyle.container}>
       <Header />
+      <Movie />
       <StatusBar style="auto" />
     </View>
   );
