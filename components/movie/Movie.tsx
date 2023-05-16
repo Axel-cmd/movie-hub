@@ -11,6 +11,7 @@ const Movie = () => {
     const getData = async () => {
         const test = await requestMovieAPI.get("movie/550")
         setMovie(test.data)
+        console.log(test.data)
     }
 
     useEffect(() => {
