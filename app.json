@@ -4,10 +4,10 @@
     "slug": "movie-hub",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -19,12 +19,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": ""
+      "favicon": "./assets/favicon.png"
     }
   }
 }

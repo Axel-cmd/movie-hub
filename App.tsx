@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { requestMovieAPI } from "./api/request";
-import { Header } from 'react-native/Libraries/NewAppScreen';
 import Movie from './components/movie/Movie';
+import Header from './components/header/Header';
 import appStyle from './app.style';
 
 

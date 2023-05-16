@@ -14,7 +14,7 @@ const Header = () => {
                 onPress={handleOnPress}
                 style={headerStyle.button}
             >
-                // ajouter un icon + ici
+                
             </Pressable>
         </View>
     )
