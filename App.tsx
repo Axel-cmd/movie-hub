@@ -12,7 +12,7 @@ export default function App() {
   return (
     <View style={appStyle.container}>
       <Header />
-      <Movie />
+      {/* <Movie /> */}
       <StatusBar style="auto" />
     </View>
   );
