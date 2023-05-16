@@ -4,6 +4,7 @@ import { Text, View, Dimensions, Image, Pressable } from "react-native";
 import discoverStyle from "./discover.style";
 import Carousel from 'react-native-reanimated-carousel';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { useAppContext } from "../../context/AppContext";
 
 interface IDiscoverSection {
     id: number,
@@ -11,6 +12,8 @@ interface IDiscoverSection {
     uri: string,
 }
 const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
+
+    const { setSelectedMovie } = useAppContext();
 
     // taille de l'écran
     const width = Dimensions.get('window').width;
@@ -35,7 +38,8 @@ const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
 
 
     const handlePressItem = (movie: any) => {
-        console.log(movie.title)
+        // console.log(movie.title)
+        setSelectedMovie(movie.id)
     }
 
     return(

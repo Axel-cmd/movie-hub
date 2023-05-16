@@ -2,6 +2,23 @@ import { StyleSheet } from "react-native";
 import theme from "../../theme/theme";
 
 export default StyleSheet.create({
+
+  // back
+  buttonBack: {
+    marginBottom: 20
+  },
+  label: {
+    fontSize: 16,
+    color: theme.secondary,
+  },
+
+  
+    dialog: {
+      height: "100%",
+      backgroundColor: theme.background,
+      paddingHorizontal: 20,
+      paddingTop: 20,
+    },
     first: {
         display: "flex",
         flexDirection: "row",

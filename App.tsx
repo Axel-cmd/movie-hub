@@ -12,13 +12,13 @@ export default function App() {
 
   return (
     <View style={appStyle.container}>
-      {/* <Movie /> */}
       <AppProvider>
         <Header />
         <Searchbar />
         <HomeLogic />
+        <Movie />
       </AppProvider>
       <StatusBar style="auto" />
     </View>
   );
-}12
+}

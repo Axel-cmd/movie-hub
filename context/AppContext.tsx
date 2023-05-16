@@ -4,6 +4,8 @@ import React, { createContext, useContext, useState } from "react";
 export interface IAppContext {
     searchMovie: (searchValue: string) => void,
     currentSearchValue: string,
+    selectedMovie: string | null,
+    setSelectedMovie: any
 }
 
 const AppContext = createContext<IAppContext | null>(null);
@@ -12,6 +14,7 @@ export const AppProvider = ({children}: {children: any}) => {
 
     const [currentSearchValue, setCurrentSearchValue] = useState("");
 
+    const [selectedMovie, setSelectedMovie] = useState<string | null>(null)
 
     const searchMovie = (searchValue: string) => {
         setCurrentSearchValue(searchValue)
@@ -20,7 +23,7 @@ export const AppProvider = ({children}: {children: any}) => {
 
 
     return (
-        <AppContext.Provider value={{searchMovie, currentSearchValue}} >
+        <AppContext.Provider value={{searchMovie, currentSearchValue, selectedMovie, setSelectedMovie}} >
             {children}
         </AppContext.Provider>
 
