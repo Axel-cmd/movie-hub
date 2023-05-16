@@ -2,10 +2,10 @@ import { Image, Pressable, Text, View } from "react-native";
 import headerStyle from "./header.style";
 import theme from "../../theme/theme";
 
-const Header = () => {
+const Header = ({action}: {action: () => void}) => {
 
     const handleOnPress = () => {
-
+        action()
     }
 
     return(
