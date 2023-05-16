@@ -6,7 +6,6 @@ export default StyleSheet.create({
         backgroundColor: theme.background,
         width: "100%",
         height: "100%",
-        paddingVertical: 100,
         paddingHorizontal: 20,
       },
 })

@@ -3,23 +3,33 @@ import theme from "../../theme/theme";
 
 export default StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: theme.background,
+        // height: "15%",
         paddingTop: 50,
-        alignItems: 'center',
-        justifyContent: "space-between",
-        paddingLeft: "5%",
-        paddingRight: "5%",
-        paddingBottom: "5%",
-
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "nowrap"
+    },
+    titleContainer: {
+        width: "80%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
     },
     title: {
-        color: theme.primary,
         fontSize: 36,
         textTransform: "uppercase",
-
+        fontWeight: "bold"
+    },
+    buttonContainer: {
+        width: "20%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-end",
     },
     button: {
-
+        width: 25,
+        height: 25
     }
 })
