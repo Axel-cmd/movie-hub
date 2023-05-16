@@ -29,7 +29,6 @@ export default {
 }
 ```
 
-
 ## Pour lancer l'application sur le téléphone
 
 Installation de expo-cli 
