@@ -3,9 +3,9 @@ import theme from "./theme/theme"
 
 export default StyleSheet.create({
     container: {
-        height: "100%",
         backgroundColor: theme.background,
-        paddingLeft: 20,
-        paddingRight: 20
+        width: "100%",
+        height: "100%",
+        paddingHorizontal: 20,
       },
 })
