@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { requestMovieAPI } from "./api/request";
 import { Header } from 'react-native/Libraries/NewAppScreen';
+import Movie from './components/movie/Movie';
 
 
 export default function App() {
@@ -19,7 +20,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Header />
+      {/* <Header /> */}
+      <Movie />
       <StatusBar style="auto" />
     </View>
   );
