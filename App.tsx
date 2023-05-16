@@ -12,7 +12,6 @@ export default function App() {
 
   return (
     <View style={appStyle.container}>
-      {/* <Header /> */}
       {/* <Movie /> */}
       <AppProvider>
         <Header />

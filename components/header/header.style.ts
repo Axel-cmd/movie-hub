@@ -4,7 +4,6 @@ import theme from "../../theme/theme";
 export default StyleSheet.create({
     container: {
         // height: "15%",
-        paddingTop: 50,
         width: "100%",
         display: "flex",
         flexDirection: "row",
