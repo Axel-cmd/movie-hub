@@ -1,5 +1,6 @@
-import { Pressable, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
 import headerStyle from "./header.style";
+import theme from "../../theme/theme";
 
 const Header = () => {
 
@@ -9,12 +10,30 @@ const Header = () => {
 
     return(
         <View style={headerStyle.container} >
-            <Text style={headerStyle.title} >movie-hub</Text>
+            <View style={headerStyle.titleContainer} >
+                <Text 
+                    style={[headerStyle.title, 
+                        {color: theme.text}
+                    ]} 
+                >
+                    movie-
+                </Text>
+                <Text 
+                    style={[
+                        headerStyle.title,
+                        {color: theme.secondary}
+                    ]} 
+                >
+                    hub
+                </Text>
+            </View>
             <Pressable
                 onPress={handleOnPress}
-                style={headerStyle.button}
+                style={headerStyle.buttonContainer}
             >
-                
+                <Image style={headerStyle.button} source={
+                    require("../../assets/hamb-menu.png")
+                } />
             </Pressable>
         </View>
     )

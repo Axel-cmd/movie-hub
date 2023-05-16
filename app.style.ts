@@ -3,9 +3,9 @@ import theme from "./theme/theme"
 
 export default StyleSheet.create({
     container: {
-        flex: 1,
+        height: "100%",
         backgroundColor: theme.background,
-        alignItems: 'center',
-        justifyContent: 'space-between',
+        paddingLeft: 20,
+        paddingRight: 20
       },
 })
