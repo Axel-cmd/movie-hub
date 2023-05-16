@@ -1,15 +1,15 @@
 import { useAppContext } from "../../context/AppContext";
-import { ScrollView } from "react-native";
 import homeLogicStyle from "./homeLogic.style";
 import SearchList from "../searchList/SearchList";
 import Home from "../home/Home";
+import { View } from "react-native";
 
 const HomeLogic = () => {
 
     const { currentSearchValue } = useAppContext();
 
     return(
-        <ScrollView style={homeLogicStyle.container} >
+        <View style={homeLogicStyle.container} >
 
             {
                 currentSearchValue == "" ?
@@ -22,7 +22,7 @@ const HomeLogic = () => {
                 )
             }
 
-        </ScrollView>
+        </View>
     )
 }
 
