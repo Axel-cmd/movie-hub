@@ -8,7 +8,7 @@ const Header = () => {
     }
 
     return(
-        <View>
+        <View style={headerStyle.container} >
             <Text style={headerStyle.title} >movie-hub</Text>
             <Pressable
                 onPress={handleOnPress}
