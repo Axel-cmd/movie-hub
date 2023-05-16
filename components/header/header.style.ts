@@ -5,7 +5,7 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: theme.background,
-        paddingTop: StatusBar.currentHeight,
+        paddingTop: 50,
         alignItems: 'center',
         justifyContent: "space-between",
         paddingLeft: "5%",
