@@ -6,7 +6,6 @@ export default StyleSheet.create({
         marginTop: 20,
         marginBottom: 20,
         width: "100%",
-        // backgroundColor: "#000"
     },
     input: {
         height: 40,

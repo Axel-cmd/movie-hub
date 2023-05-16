@@ -1,16 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import Header from './components/header/Header';
 import appStyle from './app.style';
 import Searchbar from './components/searchbar/Searchbar';
+import { AppProvider } from './context/AppContext';
+import HomeLogic from './components/homeLogic/HomeLogic';
 
 
 export default function App() {
 
   return (
     <View style={appStyle.container}>
-      <Header />
-      <Searchbar />
+      <AppProvider>
+        <Header />
+        <Searchbar />
+        <HomeLogic />
+      </AppProvider>
       <StatusBar style="auto" />
     </View>
   );
