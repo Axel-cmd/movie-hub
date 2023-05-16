@@ -6,6 +6,6 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: theme.background,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
       },
 })
