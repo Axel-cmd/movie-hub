@@ -1,15 +1,21 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import homeStyle from "./home.style";
 import LatestMovie from "../latestMovie/LatestMovie";
 import DiscoverSection from "../discoverSection/DiscoverSection";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const Home = () => {
 
     const discovers = [
         {
+            title: "Films du jour",
+            uri: "trending/movie/day"
+        },
+        {
             title: "Populaire",
             uri: "movie/popular"
-        }, {
+        }, 
+        {
             title: "Mieux notés",
             uri: "movie/top_rated"
         }
@@ -17,7 +23,9 @@ const Home = () => {
     
 
     return(
-        <View style={homeStyle.container} >
+        
+
+        <ScrollView style={homeStyle.container} >
 
             {
                 discovers.map( (d, index) => (
@@ -25,7 +33,11 @@ const Home = () => {
                 ))
             }
 
-        </View>
+        </ScrollView>
+
+           
+
+
     )
 }
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { requestMovieAPI } from "../../api/request";
-import { Text, View, Dimensions, Image } from "react-native";
+import { Text, View, Dimensions, Image, Pressable } from "react-native";
 import discoverStyle from "./discover.style";
 import Carousel from 'react-native-reanimated-carousel';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -12,10 +12,13 @@ interface IDiscoverSection {
 }
 const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
 
+    // taille de l'écran
     const width = Dimensions.get('window').width;
 
+    // liste des films
     const [movies, setMovies] = useState<any>([])
 
+    // récupérer les films liés à la section grâce à l'id
     const fetchMovies = async () => {
 
         const req =await requestMovieAPI.get(uri)
@@ -29,6 +32,11 @@ const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
     useEffect(() => {
         fetchMovies()
     }, [])
+
+
+    const handlePressItem = (movie: any) => {
+        console.log(movie.title)
+    }
 
     return(
         <View style={discoverStyle.container} >
@@ -47,9 +55,10 @@ const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
                     height={width/2}
                     data={movies}
                     scrollAnimationDuration={1000}
-                    onSnapToItem={(item: any) => console.log(item)}
+                    // onSnapToItem={(item: any) => console.log(item)}
                     renderItem={({item}: {item: any}) => (
-                        <View
+                        <Pressable
+                            onPress={() => handlePressItem(item)}
                             style={{
                                 // flex: 1,
                                 borderWidth: 1,
@@ -75,7 +84,7 @@ const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
                             />
 
 
-                        </View>
+                        </Pressable>
                     )}
                 />
             </GestureHandlerRootView>
