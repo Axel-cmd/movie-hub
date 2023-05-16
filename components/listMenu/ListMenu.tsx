@@ -10,7 +10,7 @@ interface IListMenu {
 }
 const ListMenu = ({ visible, close }: IListMenu) => {
     
-    const {  } = useAppContext();
+    const { movieList, createList } = useAppContext();
 
     const [name, setName] = useState("");
 
@@ -21,10 +21,9 @@ const ListMenu = ({ visible, close }: IListMenu) => {
     const handleSubmit = () => {
         if(name == "") return;
         // créer la liste
-
+        createList(name);
+        setName("");
     }
-
-
 
     return (
         <Modal
@@ -52,7 +51,10 @@ const ListMenu = ({ visible, close }: IListMenu) => {
                         style={listMenuStyle.input} 
                         placeholder="Nouvelle liste"
                     />
-                    <Pressable style={listMenuStyle.submitButton}>
+                    <Pressable 
+                        onPress={handleSubmit}
+                        style={listMenuStyle.submitButton}
+                    >
 
                         <Text style={listMenuStyle.submitLabel} >
                             ajouter
@@ -61,10 +63,19 @@ const ListMenu = ({ visible, close }: IListMenu) => {
 
                 </View>
 
+
+                <View>
+
+                    {
+                        movieList.map( (m, i) => (
+                            <Text key={i} >{m.name}</Text>
+                        ))
+                    }
+
+                </View>
+
+
             </View>
-
-
-
         </Modal>
     )
 }

@@ -11,7 +11,7 @@ import { Modal } from "react-native";
 
 const Movie = () => {
 
-    const { selectedMovie, setSelectedMovie } = useAppContext();
+    const { selectedMovie, setSelectedMovie, addMovieInList } = useAppContext();
 
     const [movie, setMovie] = useState<any>({})
     const [visible, setVisible] = useState(false);
@@ -37,8 +37,12 @@ const Movie = () => {
     };
 
     const rating = Math.round(movie.vote_average / 2);
+
     const handlePress = () => {
-        console.log('Le bouton a été pressé');
+        // console.log('Le bouton a été pressé');
+        // TODO: pourvoir ajouter dans la liste qu'on souhaite
+        if(movie)
+            addMovieInList(0, movie.id)
     };
 
     const handlePressBackButton = () => {

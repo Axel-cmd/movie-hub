@@ -1,15 +1,21 @@
+/**
+ * Interface pour une liste de films
+ */
+export interface List {
+    id: number,
+    name: string,
+    movies: Array<number>
+}
 
 
-class MovieList {
-    /** Nom de la liste */
-    public name: string;
-    private _movies: any[];
+/** Classe pour générer les ID */
+export class ListId {
+    static #id = -1
 
-    constructor(name: string) {
-        this.name = name;
-        this._movies = [];
+    constructor() {}
+
+    static get nextId() {
+        ListId.#id++
+        return ListId.#id
     }
-
-    
-
 }
