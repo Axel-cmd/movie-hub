@@ -21,7 +21,13 @@ export const AppProvider = ({children}: {children: any}) => {
     /** Film sélectionné actuellement */
     const [selectedMovie, setSelectedMovie] = useState<string | null>(null)
     /** Tableau des listes de l'utilisateur */
-    const [movieList, setMovieList] = useState<List[]>([]);
+    const [movieList, setMovieList] = useState<List[]>([
+        {
+            id: ListId.nextId,
+            name: "A regarder",
+            movies: []
+        }
+    ]);
 
     /**
      * Méthode lors de la recherche d'un livre
@@ -58,7 +64,6 @@ export const AppProvider = ({children}: {children: any}) => {
                     return {
                         id: list.id,
                         name: list.name,
-                        // ...list,
                         movies: [
                             movieId,
                             ...list.movies

@@ -53,7 +53,8 @@ const UserListItem = ({id, list}: IUserListItem) => {
 
                 <Carousel 
                     key={id}
-                    width={width/2}
+                    loop={false}
+                    width={width/3}
                     style={{
                         width: width,
                         marginTop: 20
