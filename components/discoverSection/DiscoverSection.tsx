@@ -5,6 +5,7 @@ import discoverStyle from "./discover.style";
 import Carousel from 'react-native-reanimated-carousel';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useAppContext } from "../../context/AppContext";
+import MovieCard from "../movieCard/MovieCard";
 
 interface IDiscoverSection {
     id: number,
@@ -12,8 +13,6 @@ interface IDiscoverSection {
     uri: string,
 }
 const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
-
-    const { setSelectedMovie } = useAppContext();
 
     // taille de l'écran
     const width = Dimensions.get('window').width;
@@ -36,12 +35,6 @@ const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
         fetchMovies()
     }, [])
 
-
-    const handlePressItem = (movie: any) => {
-        // console.log(movie.title)
-        setSelectedMovie(movie.id)
-    }
-
     return(
         <View style={discoverStyle.container} >
 
@@ -61,34 +54,7 @@ const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
                     scrollAnimationDuration={1000}
                     // onSnapToItem={(item: any) => console.log(item)}
                     renderItem={({item}: {item: any}) => (
-                        <Pressable
-                            onPress={() => handlePressItem(item)}
-                            style={{
-                                // flex: 1,
-                                borderWidth: 1,
-                                width: 120,
-                                justifyContent: 'center',
-                                marginRight: 2,
-                                borderRadius: 5
-                                
-                            }}
-                        >
-
-                            {/* <Text style={{color: "#fff"}} >{item.title}</Text> */}
-                            
-                            <Image
-                                source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
-                                style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    resizeMode: "cover",
-                                    borderRadius: 5
-
-                                }}
-                            />
-
-
-                        </Pressable>
+                        <MovieCard movie={item} key={item.id} />
                     )}
                 />
             </GestureHandlerRootView>

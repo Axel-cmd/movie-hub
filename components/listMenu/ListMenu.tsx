@@ -2,6 +2,7 @@ import { Modal, Pressable, Text, TextInput, View } from "react-native";
 import { useAppContext } from "../../context/AppContext";
 import listMenuStyle from "./listMenu.style";
 import { useState } from "react";
+import UserListItem from "../userListItem/UserListItem";
 
 
 interface IListMenu {
@@ -68,7 +69,7 @@ const ListMenu = ({ visible, close }: IListMenu) => {
 
                     {
                         movieList.map( (m, i) => (
-                            <Text key={i} >{m.name}</Text>
+                            <UserListItem id={i} key={i} list={m} />
                         ))
                     }
 
