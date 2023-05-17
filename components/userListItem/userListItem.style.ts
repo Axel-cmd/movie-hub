@@ -13,5 +13,11 @@ export default StyleSheet.create({
         fontSize: 24,
         fontWeight: "bold",
         textTransform: "capitalize"
+    },
+    noFilmInList: {
+        width: "100%",
+        color: theme.text,
+        textAlign: "center",
+        marginTop: 20
     }
 })

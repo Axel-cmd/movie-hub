@@ -43,12 +43,12 @@ export const AppProvider = ({children}: {children: any}) => {
     const createList = (name: string) => {
         setMovieList((prev: List[]) => (
             [
+                ...prev,
                 {
                     id: ListId.nextId,
                     name,
                     movies: []
                 },
-                ...prev
             ]
         ))
     }

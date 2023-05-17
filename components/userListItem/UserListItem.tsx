@@ -49,24 +49,35 @@ const UserListItem = ({id, list}: IUserListItem) => {
     return (
         <View style={userListItemStyle.container} >
             <Text style={userListItemStyle.title}>{list.name}</Text>
-            <GestureHandlerRootView>
 
-                <Carousel 
-                    key={id}
-                    loop={false}
-                    width={width/3}
-                    style={{
-                        width: width,
-                        marginTop: 20
-                    }}
-                    height={width/2}
-                    data={movies}
-                    scrollAnimationDuration={1000}
-                    renderItem={({item}: {item: any}) => (
-                        <MovieCard movie={item} key={item.id} />
-                    )}
-                />
-            </GestureHandlerRootView>
+            {
+                movies.length > 0 ?
+                (
+
+                    <GestureHandlerRootView>
+
+                        <Carousel 
+                            key={id}
+                            loop={false}
+                            width={width/3}
+                            style={{
+                                width: width,
+                                marginTop: 20
+                            }}
+                            height={width/2}
+                            data={movies}
+                            scrollAnimationDuration={1000}
+                            renderItem={({item}: {item: any}) => (
+                                <MovieCard movie={item} key={item.id} />
+                            )}
+                        />
+                    </GestureHandlerRootView>
+                )
+                :
+                (
+                    <Text style={userListItemStyle.noFilmInList} >Aucun film ajouté dans la liste</Text>
+                )
+            }
         </View>
     )
 }
