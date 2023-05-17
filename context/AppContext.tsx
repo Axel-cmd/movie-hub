@@ -58,12 +58,16 @@ export const AppProvider = ({children}: {children: any}) => {
      * @param movieId id du film
      */
     const addMovieInList = (listId: number, movieId: number) => {
+        // bloquer l'ajout du film s'il y est déjà
+        const list = movieList.find(r => r.id == listId);
+        const movie = list?.movies.find( m => m == movieId);
+        if(movie) return;
+        // ajouter le film dans la liste
         setMovieList( (prev: List[]) => (
             prev.map( list => {
                 if(list.id == listId) {
                     return {
-                        id: list.id,
-                        name: list.name,
+                        ...list,
                         movies: [
                             movieId,
                             ...list.movies
