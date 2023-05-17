@@ -28,6 +28,9 @@ const ListMenu = ({ visible, close }: IListMenu) => {
 
     return (
         <Modal
+            style={{
+                width: "100%"
+            }}
             visible={visible}
             transparent={false}
             animationType="slide"
@@ -65,7 +68,6 @@ const ListMenu = ({ visible, close }: IListMenu) => {
                 </View>
 
 
-                <View>
 
                     {
                         movieList.map( (m, i) => (
@@ -73,7 +75,6 @@ const ListMenu = ({ visible, close }: IListMenu) => {
                         ))
                     }
 
-                </View>
 
 
             </View>

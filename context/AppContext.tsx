@@ -56,7 +56,9 @@ export const AppProvider = ({children}: {children: any}) => {
             prev.map( list => {
                 if(list.id == listId) {
                     return {
-                        ...list,
+                        id: list.id,
+                        name: list.name,
+                        // ...list,
                         movies: [
                             movieId,
                             ...list.movies

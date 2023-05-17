@@ -25,7 +25,6 @@ const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
 
         const req =await requestMovieAPI.get(uri)
         if(req.data) {
-            // console.log(req.data.results);
             setMovies(req.data.results);
         }
     }
