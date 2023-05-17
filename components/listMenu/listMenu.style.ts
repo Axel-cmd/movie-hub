@@ -9,9 +9,6 @@ export default StyleSheet.create({
         paddingHorizontal: 20,
         paddingTop: 20,
     },
-    buttonBack: {
-        marginBottom: 20
-      },
     label: {
         fontSize: 16,
         color: theme.secondary,

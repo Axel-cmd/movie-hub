@@ -3,6 +3,7 @@ import { useAppContext } from "../../context/AppContext";
 import listMenuStyle from "./listMenu.style";
 import { useState } from "react";
 import UserListItem from "../userListItem/UserListItem";
+import BackButton from "../backButton/BackButton";
 
 
 interface IListMenu {
@@ -38,12 +39,7 @@ const ListMenu = ({ visible, close }: IListMenu) => {
             <View style={listMenuStyle.container}>
 
 
-                <Pressable
-                    style={listMenuStyle.buttonBack}
-                    onPress={close}            
-                >
-                    <Text style={listMenuStyle.label} >retour</Text>
-                </Pressable>
+                <BackButton action={close} />
 
 
                 <Text style={listMenuStyle.title} >Listes</Text>

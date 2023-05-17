@@ -6,6 +6,7 @@ import movieStyle from "./movie.style";
 import { AirbnbRating } from 'react-native-ratings';
 import { useAppContext } from "../../context/AppContext";
 import { Modal } from "react-native";
+import BackButton from "../backButton/BackButton";
 
 
 
@@ -73,13 +74,7 @@ const Movie = () => {
             >
           {movie && (
             <View>
-                <Pressable
-                    style={movieStyle.buttonBack}
-                    onPress={handlePressBackButton}
-                >
-
-                    <Text style={movieStyle.label} >retour</Text>
-                </Pressable>
+                <BackButton action={handlePressBackButton} />
                 
                 <View style={movieStyle.first}>
                     <Image
