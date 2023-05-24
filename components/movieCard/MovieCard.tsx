@@ -9,9 +9,7 @@ const MovieCard = ({ movie }: IMovieCard) => {
 
     const { setSelectedMovie } = useAppContext();
 
-
     const handlePressItem = () => {
-        // console.log(movie.title)
         setSelectedMovie(movie.id)
     }
 

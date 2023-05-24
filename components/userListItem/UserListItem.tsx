@@ -40,9 +40,7 @@ const UserListItem = ({id, list}: IUserListItem) => {
     }
 
     useEffect(() => {
-        // setMovies([])
         loadData()
-        console.log(movies)
     }, [list])
 
 

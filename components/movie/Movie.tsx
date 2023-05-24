@@ -40,8 +40,6 @@ const Movie = () => {
     const rating = Math.round(movie.vote_average / 2);
 
     const handlePress = () => {
-        // console.log('Le bouton a été pressé');
-        // TODO: pourvoir ajouter dans la liste qu'on souhaite
         if(movie)
             addMovieInList(0, movie.id)
     };
@@ -127,53 +125,3 @@ const Movie = () => {
 }
 
 export default Movie;
-
-
-{/* <View>
-          {movie && (
-            <View>
-                <View style={movieStyle.first}>
-                    <Image
-                    source={{ uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}` }}
-                    style={movieStyle.poster}
-                    />
-                    <View style={movieStyle.info}>
-                        <Text style={movieStyle.title}>{movie.title}</Text>
-                        <Text style={movieStyle.releaseDate}>Sortie: {movie.release_date}</Text>
-                        <View >
-                            <AirbnbRating
-                            starContainerStyle={movieStyle.star}
-                            defaultRating={rating}
-                            size={20}
-                            showRating={false}
-                            selectedColor="#f1c40f"
-                            isDisabled={true}
-                            />
-                        </View>
-                    </View>
-                </View>
-                {movie.video && (
-                    <TouchableOpacity
-                    style={movieStyle.trailerButton}
-                    onPress={() =>
-                        // Open the movie trailer
-                        console.log('Play movie trailer')
-                    }
-                    >
-                    <Text style={movieStyle.trailerButtonText}>Watch Trailer</Text>
-                    </TouchableOpacity>
-                )}
-                                <Text> {'\n'} </Text>
-                <Pressable style={movieStyle.button} onPress={handlePress}>
-                    <Text style={movieStyle.buttonText}>+ Ajouter à ma liste</Text>
-                </Pressable>
-                <Text> {'\n'} </Text>
-                <Text style={movieStyle.description}>{movie.overview}</Text>
-                <Text> {'\n'} </Text>
-                <Text style={movieStyle.genre}>Genre: {renderGenres()}</Text>
-                <Text style={movieStyle.duration}>Durée: {convertMinutesToHours(movie.runtime)}</Text>
-                <Text style={movieStyle.director}>Direction: {movie.director}</Text>
-                <Text style={movieStyle.producer}>Procucteur: {movie.producer}</Text>
-            </View>
-          )}
-        </View> */}

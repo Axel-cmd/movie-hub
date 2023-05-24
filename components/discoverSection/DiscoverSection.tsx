@@ -51,7 +51,6 @@ const DiscoverSection = ({id, title, uri}: IDiscoverSection) => {
                     height={width/2}
                     data={movies}
                     scrollAnimationDuration={1000}
-                    // onSnapToItem={(item: any) => console.log(item)}
                     renderItem={({item}: {item: any}) => (
                         <MovieCard movie={item} key={item.id} />
                     )}

@@ -30,3 +30,16 @@ export async function storeDataInAsyncStorage(key: string, value: string) {
         
     }
 }
+
+/**
+ * Pour supprimer un élément dans le storage
+ * @param key 
+ */
+export async function deleteDataInAsyncStorage(key :string) {
+    try {
+        await AsyncStorage.removeItem(key);
+    } catch (error: any) {
+        throw new Error(error);
+        
+    }
+}

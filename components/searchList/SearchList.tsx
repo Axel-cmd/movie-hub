@@ -20,8 +20,6 @@ const SearchList = () => {
         })
 
         setMovies(data.data.results)
-        // console.log(movies)
-
     }
  
    useEffect(() => {

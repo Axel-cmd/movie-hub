@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { List, ListId } from "../models/movieList.model";
-import { getDataInAsyncStorage, storeDataInAsyncStorage } from "../functions/storage";
+import { deleteDataInAsyncStorage, getDataInAsyncStorage, storeDataInAsyncStorage } from "../functions/storage";
 
 
 export interface IAppContext {
@@ -22,20 +22,21 @@ export const AppProvider = ({children}: {children: any}) => {
     /** Film sélectionné actuellement */
     const [selectedMovie, setSelectedMovie] = useState<string | null>(null)
     /** Tableau des listes de l'utilisateur */
-    const [movieList, setMovieList] = useState<List[]>([
-        {
-            id: ListId.nextId,
-            name: "A regarder",
-            movies: []
-        }
-    ]);
+    const [movieList, setMovieList] = useState<List[]>([]);
 
     const getUserMovieList = async () => {
         const result = await getDataInAsyncStorage("movies")
         if(result) {
             setMovieList(JSON.parse(result));
         } else {
-            console.log("movies", result)
+            // ajouter la liste par défaut si y en a pas dans le AsyncStorage
+            setMovieList([
+                {
+                    id: ListId.nextId,
+                    name: "A regarder",
+                    movies: []
+                }
+            ])
         }
     }
 
@@ -76,33 +77,24 @@ export const AppProvider = ({children}: {children: any}) => {
      * @param movieId id du film
      */
     const addMovieInList = (listId: number, movieId: number) => {
-        // bloquer l'ajout du film s'il y est déjà
-        const list = movieList.find(r => r.id == listId);
-        const movie = list?.movies.find( m => m == movieId);
-        if(movie) return;
 
-        //TODO faire un autre objet qui prend la valeur de movieList et qui le modifie
+        // récupérer la valeur actuelle de movieList et en faire une copie (instance différente)
+        let lists: List[] = JSON.parse(JSON.stringify(movieList));
 
-        // ajouter le film dans la liste
-        setMovieList( (prev: List[]) => (
-            prev.map( list => {
-                if(list.id == listId) {
-                    return {
-                        ...list,
-                        movies: [
-                            movieId,
-                            ...list.movies
-                        ]
-                    }
-                } else {
-                    return list;
-                }
-            })
-        ))
+        // trouver la liste 
+        const list = lists.find(r => r.id == listId);
+        // le film est-il déjà présent ?
+        const movieAlreadyExist = list?.movies.includes(movieId);
 
-        const movies = JSON.stringify(movieList);
-        storeDataInAsyncStorage("movies", movies);
+        if(!list || movieAlreadyExist) return;
 
+        // ajouter le film dans la liste correspondante
+        list.movies.push(movieId);
+
+        setMovieList(lists);
+
+        // const movies = JSON.stringify(movieList);
+        storeDataInAsyncStorage("movies", JSON.stringify(lists));
     }
 
 
