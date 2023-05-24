@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { List, ListId } from "../models/movieList.model";
+import { getDataInAsyncStorage, storeDataInAsyncStorage } from "../functions/storage";
 
 
 export interface IAppContext {
@@ -28,6 +29,23 @@ export const AppProvider = ({children}: {children: any}) => {
             movies: []
         }
     ]);
+
+    const getUserMovieList = async () => {
+        const result = await getDataInAsyncStorage("movies")
+        if(result) {
+            setMovieList(JSON.parse(result));
+        } else {
+            console.log("movies", result)
+        }
+    }
+
+    /** 
+     * S'éxecute une fois à l'initialisation du composant 
+     * pour récupérer les données dans le async storage
+    */
+    useEffect(() => {
+        getUserMovieList();
+    }, [])
 
     /**
      * Méthode lors de la recherche d'un livre
@@ -62,6 +80,9 @@ export const AppProvider = ({children}: {children: any}) => {
         const list = movieList.find(r => r.id == listId);
         const movie = list?.movies.find( m => m == movieId);
         if(movie) return;
+
+        //TODO faire un autre objet qui prend la valeur de movieList et qui le modifie
+
         // ajouter le film dans la liste
         setMovieList( (prev: List[]) => (
             prev.map( list => {
@@ -78,6 +99,10 @@ export const AppProvider = ({children}: {children: any}) => {
                 }
             })
         ))
+
+        const movies = JSON.stringify(movieList);
+        storeDataInAsyncStorage("movies", movies);
+
     }
 
 
